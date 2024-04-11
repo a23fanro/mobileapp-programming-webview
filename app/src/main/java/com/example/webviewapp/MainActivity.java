@@ -17,10 +17,18 @@ public class MainActivity extends AppCompatActivity {
 
     public void showExternalWebPage(){
         // TODO: Add your code for showing external web page here
+        findViewById(R.id.minwebviewsID);
+        myWebView = findViewById(R.id.minwebviewsID);
+        myWebView.setWebViewClient(new WebViewClient()); // Do not open in Chrome!
+        myWebView.loadUrl("https://his.se");
     }
 
     public void showInternalWebPage(){
         // TODO: Add your code for showing internal web page here
+        findViewById(R.id.minwebviewsID);
+        myWebView = findViewById(R.id.minwebviewsID);
+        myWebView.setWebViewClient(new WebViewClient()); // Do not open in Chrome!
+        myWebView.loadUrl("///android_asset/internal.html");
     }
 
     WebView myWebView;
@@ -32,13 +40,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        findViewById(R.id.minwebviewsID);
-
-        myWebView = findViewById(R.id.minwebviewsID);
-        myWebView.setWebViewClient(new WebViewClient()); // Do not open in Chrome!
-        myWebView.loadUrl("https://his.se");
-
-
 
         /*
         * Rename your App. Tip: Values->Strings
@@ -83,11 +84,17 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_external_web) {
             Log.d("==>","Will display external web page");
+
+            showExternalWebPage();
+
             return true;
         }
 
         if (id == R.id.action_internal_web) {
             Log.d("==>","Will display internal web page");
+
+            showInternalWebPage();
+
             return true;
         }
 
